@@ -338,6 +338,8 @@ class MeetingResponse(BaseMeetingItem):
     LOCAL_FIELDS = Fields(
         MailboxField('received_by', field_uri='message:ReceivedBy', is_read_only=True),
         MailboxField('received_representing', field_uri='message:ReceivedRepresenting', is_read_only=True),
+        DateTimeField('proposed_start', field_uri='meeting:ProposedStart', is_read_only=True),
+        DateTimeField('proposed_end', field_uri='meeting:ProposedEnd', is_read_only=True),
     )
     # FIELDS on this element are shuffled compared to other elements
     culture_idx = None
