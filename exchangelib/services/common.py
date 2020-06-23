@@ -69,7 +69,7 @@ class EWSService(metaclass=abc.ABCMeta):
             return
         if expect_result is False:
             if res:
-                raise ValueError('Expected result length 0, but got %r', res)
+                raise ValueError('Expected result length 0, but got %r' % res)
             return
         if len(res) != 1:
             raise ValueError('Expected result length 1, but got %r' % res)
