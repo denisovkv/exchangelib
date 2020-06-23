@@ -185,7 +185,7 @@ def value_to_xml_text(value):
     # We can't handle bytes in this function because str == bytes on Python2
     from .ewsdatetime import EWSTimeZone, EWSDateTime, EWSDate
     from .indexed_properties import PhoneNumber, EmailAddress
-    from .properties import Mailbox, Attendee, ConversationId
+    from .properties import Mailbox, AssociatedCalendarItemId, Attendee, ConversationId
     if isinstance(value, str):
         return safe_xml_value(value)
     if isinstance(value, bool):
@@ -209,6 +209,8 @@ def value_to_xml_text(value):
     if isinstance(value, Attendee):
         return value.mailbox.email_address
     if isinstance(value, ConversationId):
+        return value.id
+    if isinstance(value, AssociatedCalendarItemId):
         return value.id
     raise NotImplementedError('Unsupported type: %s (%s)' % (type(value), value))
 
